@@ -1,0 +1,119 @@
+.pFallingCoint{
+  position: relative;
+  width: 100vw;
+  height: 300px;
+	background-image: url('cherryblossom.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center 0;
+}
+
+.coin1 {
+  width: 20px;
+  height: 20px;
+  -webkit-animation-name: dropcoin1; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+  animation-name: dropcoin1;
+  animation-duration: 2s;
+  animation-delay: 4s;
+  animation-iteration-count: infinite;
+  position: absolute;
+  left: calc(50vw + 52.8px);
+  opacity: 0.0;
+}
+
+.coin2 {
+  width: 20px;
+  height: 20px;
+  -webkit-animation-name: dropcoin2; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 2.5s; /* Safari 4.0 - 8.0 */
+  animation-name: dropcoin2;
+  animation-duration: 2.5s;
+  animation-delay: 3s;
+  animation-iteration-count: infinite;
+  position: absolute;
+  left: calc(50vw - 78px);
+  opacity: 0.0;
+}
+
+.coin3 {
+  width: 20px;
+  height: 20px;
+  -webkit-animation-name: dropcoin3; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  animation-name: dropcoin3;
+  animation-duration: 4s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  position: absolute;
+  left: calc(50vw - 30px);
+  opacity: 0.0;
+}
+
+.coin4 {
+  width: 20px;
+  height: 20px;
+  -webkit-animation-name: dropcoin4; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 3s; /* Safari 4.0 - 8.0 */
+  animation-name: dropcoin4;
+  animation-duration: 3s;
+  animation-delay: 3s;
+  animation-iteration-count: infinite;
+  position: absolute;
+  left: calc(50vw + 11.4px);
+  opacity: 0.0;
+}
+
+.coin5 {
+  width: 20px;
+  height: 20px;
+  -webkit-animation-name: dropcoin5; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 3s; /* Safari 4.0 - 8.0 */
+  animation-name: dropcoin5;
+  animation-duration: 3s;
+  animation-delay: 5s;
+  animation-iteration-count: infinite;
+  position: absolute;
+  left: calc(50vw - 10px);
+  opacity: 0.0;
+}
+
+@keyframes dropcoin1 {
+  0%{top:167.52px;}
+  15%{top:167.52px;opacity:1.0;}
+  85%{top:268.8px;opacity:0.1;}
+  100%{top:268.8px;opacity:0.0;}
+   
+}
+
+@keyframes dropcoin2 {
+  0%{top:201.6px;}
+  15%{top:201.6px;opacity:1.0;}
+  85%{top:268.8px;opacity:0.9;}
+  100%{top:268.8px;opacity:0.0;}
+  
+}
+
+@keyframes dropcoin3 {
+  0%{top:182.4px;}
+  15%{top:182.4px;opacity:1.0;}
+  85%{top:278.4px;opacity:0.9;}
+  100%{top:278.4px;opacity:0.0;}
+  
+}
+
+@keyframes dropcoin4 {
+  0%{top:173.28px;}
+  15%{top:173.28px;opacity:1.0;}
+  85%{top:268.8px;opacity:0.9;}
+  100%{top:268.8px;opacity:0.0;}
+  
+}
+
+@keyframes dropcoin5 {
+  0%{top:108.48px;}
+  15%{top:108.48px;opacity:1.0;}
+  85%{top:278.4px;opacity:0.9;}
+  100%{top:278.4px;opacity:0.0;}
+  
+}
