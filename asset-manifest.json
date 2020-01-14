@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/CNY_ProjectionFrontend/static/css/main.a590fb8a.chunk.css",
+    "main.js": "/CNY_ProjectionFrontend/static/js/main.ad6123ef.chunk.js",
+    "runtime-main.js": "/CNY_ProjectionFrontend/static/js/runtime-main.ddaea2ee.js",
+    "static/js/2.867372ef.chunk.js": "/CNY_ProjectionFrontend/static/js/2.867372ef.chunk.js",
+    "index.html": "/CNY_ProjectionFrontend/index.html",
+    "precache-manifest.bbd90644b7f39a9f67aef90fb17d0207.js": "/CNY_ProjectionFrontend/precache-manifest.bbd90644b7f39a9f67aef90fb17d0207.js",
+    "service-worker.js": "/CNY_ProjectionFrontend/service-worker.js",
+    "static/js/2.867372ef.chunk.js.LICENSE": "/CNY_ProjectionFrontend/static/js/2.867372ef.chunk.js.LICENSE",
+    "static/media/index.css": "/CNY_ProjectionFrontend/static/media/bg.e2b23dc7.png",
+    "static/media/CoinTree.css": "/CNY_ProjectionFrontend/static/media/cherryblossom.701fe22b.png",
+    "static/media/cntxt.svg": "/CNY_ProjectionFrontend/static/media/cntxt.4ca3826e.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ddaea2ee.js",
+    "static/js/2.867372ef.chunk.js",
+    "static/css/main.a590fb8a.chunk.css",
+    "static/js/main.ad6123ef.chunk.js"
+  ]
+}
