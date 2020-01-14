@@ -12,11 +12,18 @@ const ScoreElement: React.FC<Props> = props => {
       style={{
         margin: "4px 5vw",
         flex: 1,
-        height: `${props.scorePercent * 95 + 5}%`,
+        minHeight: "1em",
+        height:
+          props.votes !== -1
+            ? `calc(${props.scorePercent * 85}% + 1em)`
+            : "1em",
         background: COLORS.accent,
         textAlign: "center",
         fontSize: "2em",
-        color: COLORS.primary
+        color: COLORS.primary,
+        position: "relative",
+        lineHeight: "1em",
+        transition: "height 0.5s ease-out"
       }}
     >
       {props.votes !== -1 ? props.votes : ""}

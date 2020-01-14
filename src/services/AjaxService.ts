@@ -51,7 +51,7 @@ export default class AjaxService {
       const result = await axios.get(BASE_HREF + `/poll/${qnPos}`);
       console.log(result);
       if (result.status === 200) {
-        return Result.adaptFromJson(result.data.choices);
+        return Result.adaptFromJson(result.data.pollSummaries);
       } else {
         return null;
       }

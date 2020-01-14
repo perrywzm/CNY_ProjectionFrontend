@@ -14,7 +14,7 @@ const ScoreResultsGraph: React.FC<Props> = props => {
       <>
         <div style={{ height: "100%" }} />
         {props.question.images.map(img => (
-          <ScoreElement votes={-1} scorePercent={0} />
+          <ScoreElement votes={-1} scorePercent={1} />
         ))}
       </>
     );
