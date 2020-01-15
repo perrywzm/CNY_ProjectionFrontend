@@ -34,7 +34,8 @@ const useStyles = makeStyles({
     // backgroundSize: "cover",
     color: COLORS.primary,
     height: (props: Props) => (props.show ? "60%" : 0),
-    transition: "height 0.6s"
+    transition: "height 0.6s",
+    overflow: "hidden"
   },
   bodyImg: {
     position: "absolute",
@@ -92,14 +93,14 @@ const LeaderboardScroll: React.FC<Props> = props => {
                       <span style={{ float: "left" }}>{idx + 1}.</span>
                       {userRank.username}
                     </Typography>
-                    <Typography className={classes.ranking}>
+                    {/* <Typography className={classes.ranking}>
                       <span style={{ float: "left" }}>{idx+1}.</span>
                       {userRank.username}
                     </Typography>
                     <Typography className={classes.ranking}>
                       <span style={{ float: "left" }}>{idx+1}.</span>
                       {userRank.username}
-                    </Typography>
+                    </Typography> */}
                   </>
                 ))}
             </>

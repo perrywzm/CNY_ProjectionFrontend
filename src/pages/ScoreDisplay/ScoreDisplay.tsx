@@ -3,7 +3,8 @@ import {
   makeStyles,
   GridListTile,
   GridList,
-  GridListTileBar
+  GridListTileBar,
+  Box
 } from "@material-ui/core";
 import TitleCard from "../../components/TitleCard";
 import { COLORS } from "../../theme";
@@ -31,6 +32,14 @@ const useStyles = makeStyles({
     height: "60vh",
     display: "flex",
     alignItems: "flex-end"
+  },
+  borderDiv: {
+    top: 0,
+    zIndex: 200,
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+    border: `6px solid ${COLORS.secondary}`
   }
 });
 
@@ -90,9 +99,14 @@ const ScoreDisplay: React.FC<Props> = () => {
       </div>
       <GridList style={{ padding: 24 }} cols={images.length}>
         {images.map(image => (
-          <GridListTile style={{ padding: 4, height: "100%" }}>
-            <img src={image.url} />
+          <GridListTile style={{ padding: "8px", height: "100%" }}>
+            <img
+              src={image.url}
+              // style={{ boxShadow: `inset 0 0 6px ${COLORS.secondary}` }}
+              // style={{ border: `3px solid inset ${COLORS.secondary}` }}
+            />
             <GridListTileBar subtitle={image.title} />
+            <div className={classes.borderDiv} />
           </GridListTile>
         ))}
       </GridList>

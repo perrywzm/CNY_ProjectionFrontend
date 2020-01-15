@@ -12,6 +12,7 @@ import GameService from "../../game/GameService";
 import { QuestionState, ProgressState } from "../../models/GameState";
 import GameStateRedirector from "../../components/GameStateRedirector";
 import AjaxService from "../../services/AjaxService";
+import { COLORS } from "../../theme";
 
 const useStyles = makeStyles({
   container: {
@@ -22,6 +23,14 @@ const useStyles = makeStyles({
   },
   title: {
     fontSize: "3em"
+  },
+  borderDiv: {
+    top: 0,
+    zIndex: 200,
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+    border: `8px solid ${COLORS.secondary}`
   }
 });
 
@@ -88,12 +97,13 @@ const GameDisplay: React.FC<Props> = () => {
         {images
           .filter((_, idx) => idx < Math.ceil(images.length / 2))
           .map(image => (
-            <GridListTile style={{ padding: 4, height: "100%" }}>
+            <GridListTile style={{ padding: 8, height: "100%" }}>
               <img
                 style={{ objectFit: "cover", height: "100%", width: "100%" }}
                 src={image.url}
               />
               <GridListTileBar subtitle={image.title} />
+              <div className={classes.borderDiv} />
             </GridListTile>
           ))}
       </GridList>
@@ -111,6 +121,7 @@ const GameDisplay: React.FC<Props> = () => {
                 src={image.url}
               />
               <GridListTileBar subtitle={image.title} />
+              <div className={classes.borderDiv} />
             </GridListTile>
           ))}
       </GridList>
