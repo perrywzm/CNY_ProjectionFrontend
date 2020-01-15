@@ -13,6 +13,7 @@ import { QuestionState, ProgressState } from "../../models/GameState";
 import GameStateRedirector from "../../components/GameStateRedirector";
 import AjaxService from "../../services/AjaxService";
 import { COLORS } from "../../theme";
+import ImageTitle from "./ImageTitle";
 
 const useStyles = makeStyles({
   container: {
@@ -40,6 +41,9 @@ const GameDisplay: React.FC<Props> = () => {
   const classes = useStyles({});
   const history = useHistory();
   const gameService = useDependency(GameService);
+  const initialTimeRef = React.useRef<number>(Date.now());
+  const [time, setTime] = React.useState(0);
+  const timerRef = React.useRef<number>(null);
 
   React.useEffect(() => {
     if (!gameService.isFetchingAllQuestions) gameService.getAllQuestions();
@@ -57,6 +61,12 @@ const GameDisplay: React.FC<Props> = () => {
     };
 
     handleGameStateAsync();
+    const checkTime = () => {
+      setTime(Date.now() - initialTimeRef.current);
+    };
+    timerRef.current = window.setInterval(checkTime, 1000);
+
+    return () => clearInterval(initialTimeRef.current);
   }, []);
 
   // React.useEffect(() => {
@@ -102,13 +112,15 @@ const GameDisplay: React.FC<Props> = () => {
                 style={{ objectFit: "cover", height: "100%", width: "100%" }}
                 src={image.url}
               />
-              <GridListTileBar subtitle={image.title} />
+              <ImageTitle>{image.title}</ImageTitle>
               <div className={classes.borderDiv} />
             </GridListTile>
           ))}
       </GridList>
       <TitleCard className={classes.title}>
         {currentQn.position}. {currentQn.title}
+        <br />
+        <span style={{ fontSize: "0.75em" }}>{formatTimeToString(time)}</span>
       </TitleCard>
       <GridList
         style={{ flex: 1, padding: 24 }}
@@ -122,13 +134,22 @@ const GameDisplay: React.FC<Props> = () => {
                 style={{ objectFit: "cover", height: "100%", width: "100%" }}
                 src={image.url}
               />
-              <GridListTileBar subtitle={image.title} />
+              <ImageTitle>{image.title}</ImageTitle>
               <div className={classes.borderDiv} />
             </GridListTile>
           ))}
       </GridList>
     </div>
   );
+};
+
+const formatTimeToString = (timeInMs: number) => {
+  const totalSeconds = Math.round(timeInMs / 1000);
+  const mins = Math.floor(totalSeconds / 60);
+  const minStr = mins < 10 ? `0${mins}` : mins.toString();
+  const secs = totalSeconds % 60;
+  const secStr = secs < 10 ? `0${secs}` : secs.toString();
+  return `${minStr}:${secStr}`;
 };
 
 export default GameDisplay;
