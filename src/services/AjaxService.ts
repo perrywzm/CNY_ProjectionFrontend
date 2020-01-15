@@ -48,17 +48,18 @@ export default class AjaxService {
   };
 
   static fetchQuestionResults = async (qnPos: number) => {
-    try {
-      const result = await axios.get(BASE_HREF + `/poll/${qnPos}`);
-      console.log(result);
-      if (result.status === 200) {
-        return Result.adaptFromJson(result.data.pollSummaries);
-      } else {
-        return null;
+    for (let attempts = 0; attempts < 10; attempts++) {
+      try {
+        const result = await axios.get(BASE_HREF + `/poll/${qnPos}`);
+        if (result.status === 200) {
+          return Result.adaptFromJson(result.data.pollSummaries);
+        }
+      } catch (e) {
+        console.error(
+          `Attempt ${attempts + 1}: Error encountered when fetching question!`,
+          e
+        );
       }
-    } catch (e) {
-      console.error("Error encountered when fetching question!", e);
-      return null;
     }
   };
 

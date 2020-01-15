@@ -88,7 +88,7 @@ const ScoreDisplay: React.FC<Props> = () => {
         className={classes.title}
         onClick={() => setIsShowingLeaderboard(true)}
       >
-        {currentQn.title}
+        {currentQn.position}. {currentQn.title}
       </TitleCard>
 
       <div className={classes.graphContainer}>

@@ -107,7 +107,9 @@ const GameDisplay: React.FC<Props> = () => {
             </GridListTile>
           ))}
       </GridList>
-      <TitleCard className={classes.title}>{currentQn.title}</TitleCard>
+      <TitleCard className={classes.title}>
+        {currentQn.position}. {currentQn.title}
+      </TitleCard>
       <GridList
         style={{ flex: 1, padding: 24 }}
         cols={Math.ceil(images.length / 2)}

@@ -14,7 +14,7 @@ const ScoreElement: React.FC<Props> = props => {
         flex: 1,
         minHeight: "1em",
         height:
-          props.votes !== -1
+          props.votes !== 0
             ? `calc(${props.scorePercent * 85}% + 1em)`
             : "1em",
         background: COLORS.accent,
