@@ -9,8 +9,6 @@ interface Props {
 }
 
 const ScoreResultsGraph: React.FC<Props> = props => {
-
-
   if (!props.availableResults || props.availableResults.resultsMap.size === 0) {
     return (
       <>
