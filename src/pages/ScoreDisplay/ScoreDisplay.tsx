@@ -14,6 +14,7 @@ import { QuestionState, ProgressState } from "../../models/GameState";
 import GameStateRedirector from "../../components/GameStateRedirector";
 import AjaxService from "../../services/AjaxService";
 import ScoreResultsGraph from "./ScoreResultsGraph";
+import LeaderboardScroll from "./LeaderboardScroll";
 
 const useStyles = makeStyles({
   container: {
@@ -39,6 +40,7 @@ const ScoreDisplay: React.FC<Props> = () => {
   const classes = useStyles({});
   const history = useHistory();
   const gameService = useDependency(GameService);
+  const [isShowingLeaderboard, setIsShowingLeaderboard] = React.useState(false);
 
   console.log("Updating...");
 
@@ -58,7 +60,7 @@ const ScoreDisplay: React.FC<Props> = () => {
     gameService.questionsMap.size === 0 ||
     gameService.gameState === ProgressState.END
   )
-    return <></>;
+    return <GameStateRedirector gameService={gameService} />;
 
   const currentQn = gameService.questionsMap.get(
     gameService.currentQuestionPos
@@ -73,7 +75,12 @@ const ScoreDisplay: React.FC<Props> = () => {
       // onClick={() => history.push("/projection-qn")}
     >
       <GameStateRedirector gameService={gameService} />
-      <TitleCard className={classes.title}>{currentQn.title}</TitleCard>
+      <TitleCard
+        className={classes.title}
+        onClick={() => setIsShowingLeaderboard(true)}
+      >
+        {currentQn.title}
+      </TitleCard>
 
       <div className={classes.graphContainer}>
         <ScoreResultsGraph
@@ -89,6 +96,11 @@ const ScoreDisplay: React.FC<Props> = () => {
           </GridListTile>
         ))}
       </GridList>
+
+      <LeaderboardScroll
+        show={isShowingLeaderboard}
+        onClose={() => setIsShowingLeaderboard(false)}
+      />
     </div>
   );
 };

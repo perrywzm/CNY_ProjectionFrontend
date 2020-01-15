@@ -27,8 +27,9 @@ const GameStateRedirector: React.FC<Props> = ({ gameService }) => {
         break;
     }
   };
-  
+
   const handleGameStateRedirection = () => {
+    console.log("Comparing...", location.pathname, "/");
     switch (gameService.gameState) {
       case ProgressState.EMPTY:
       case ProgressState.WAITING:

@@ -18,12 +18,16 @@ const useStyles = makeStyles({
 
 interface Props {
   className?: string;
+  onClick?: (e?: any) => void;
 }
 
 const TitleCard: React.FC<Props> = props => {
   const classes = useStyles({});
   return (
-    <div className={`${classes.container} ${props.className}`}>
+    <div
+      className={`${classes.container} ${props.className}`}
+      onClick={props.onClick}
+    >
       {props.children}
     </div>
   );

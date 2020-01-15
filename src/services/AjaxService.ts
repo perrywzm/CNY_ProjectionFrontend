@@ -2,6 +2,7 @@ import axios from "axios";
 import Question from "./../models/Question";
 import { GameState } from "../models/GameState";
 import Result from "../models/Result";
+import UserRank from "../models/UserRank";
 
 const BASE_HREF = "https://cnybackend.southeastasia.cloudapp.azure.com/api";
 
@@ -73,6 +74,20 @@ export default class AjaxService {
       }
     } catch (e) {
       console.error("Error encountered when fetching image!", e);
+      return null;
+    }
+  };
+
+  static fetchAllUsersRank = async () => {
+    try {
+      const result = await axios.get(BASE_HREF + "/game/rank?size=6");
+      if (result.status === 200) {
+        return result.data as UserRank[];
+      } else {
+        return null;
+      }
+    } catch (e) {
+      console.error("Error encountered when fetching leaderboard ranks!", e);
       return null;
     }
   };

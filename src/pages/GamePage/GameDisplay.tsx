@@ -66,7 +66,7 @@ const GameDisplay: React.FC<Props> = () => {
     gameService.questionsMap.size === 0 ||
     gameService.gameState === ProgressState.END
   )
-    return <></>;
+    return <GameStateRedirector gameService={gameService} />;
 
   const currentQn = gameService.questionsMap.get(
     gameService.currentQuestionPos

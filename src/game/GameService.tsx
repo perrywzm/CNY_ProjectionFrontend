@@ -46,7 +46,9 @@ export default class GameService extends BaseDependency {
         const currentQn = await AjaxService.fetchQuestion(
           this.currentQuestionPos
         );
-        this.questionsMap.set(currentQn.position, currentQn);
+        if (currentQn) {
+          this.questionsMap.set(currentQn.position, currentQn);
+        }
       }
 
       this.update();
@@ -74,12 +76,14 @@ export default class GameService extends BaseDependency {
   };
 
   getQuestionResults = async (qnPos: number) => {
-    const result = await AjaxService.fetchQuestionResults(this.currentQuestionPos);
+    const result = await AjaxService.fetchQuestionResults(
+      this.currentQuestionPos
+    );
     if (result) {
       this.questionResultsMap.set(qnPos, result);
       this.update();
     }
-  }
+  };
 
   handleEvent = (msg: GameState) => {
     console.log("Handling", msg);

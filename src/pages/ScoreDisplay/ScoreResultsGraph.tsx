@@ -9,7 +9,9 @@ interface Props {
 }
 
 const ScoreResultsGraph: React.FC<Props> = props => {
-  if (!props.availableResults) {
+
+
+  if (!props.availableResults || props.availableResults.resultsMap.size === 0) {
     return (
       <>
         <div style={{ height: "100%" }} />
@@ -22,7 +24,8 @@ const ScoreResultsGraph: React.FC<Props> = props => {
 
   let maxScore = Array.from(
     props.availableResults.resultsMap.values()
-  ).reduce((accum, curr) => (accum > curr ? curr : accum));
+  ).reduce((accum, curr) => (accum > curr ? accum : curr));
+  console.log("OMG MAX SCOREEEEEEEEEEEEEE", maxScore);
   if (!maxScore) {
     maxScore = 1;
   }
