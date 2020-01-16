@@ -16,6 +16,7 @@ import GameStateRedirector from "../../components/GameStateRedirector";
 import AjaxService from "../../services/AjaxService";
 import ScoreResultsGraph from "./ScoreResultsGraph";
 import LeaderboardScroll from "./LeaderboardScroll";
+import ImageTitle from "../GamePage/ImageTitle";
 
 const useStyles = makeStyles({
   container: {
@@ -105,7 +106,7 @@ const ScoreDisplay: React.FC<Props> = () => {
               // style={{ boxShadow: `inset 0 0 6px ${COLORS.secondary}` }}
               // style={{ border: `3px solid inset ${COLORS.secondary}` }}
             />
-            <GridListTileBar subtitle={image.title} />
+            <ImageTitle fontSize={40}>{image.title}</ImageTitle>
             <div className={classes.borderDiv} />
           </GridListTile>
         ))}
