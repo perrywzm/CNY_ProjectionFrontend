@@ -23,7 +23,6 @@ const ScoreResultsGraph: React.FC<Props> = props => {
   let maxScore = Array.from(
     props.availableResults.resultsMap.values()
   ).reduce((accum, curr) => (accum > curr ? accum : curr));
-  console.log("OMG MAX SCOREEEEEEEEEEEEEE", maxScore);
   if (!maxScore) {
     maxScore = 1;
   }

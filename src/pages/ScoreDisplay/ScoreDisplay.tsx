@@ -101,11 +101,7 @@ const ScoreDisplay: React.FC<Props> = () => {
       <GridList style={{ padding: 24 }} cols={images.length}>
         {images.map(image => (
           <GridListTile style={{ padding: "8px", height: "100%" }}>
-            <img
-              src={image.url}
-              // style={{ boxShadow: `inset 0 0 6px ${COLORS.secondary}` }}
-              // style={{ border: `3px solid inset ${COLORS.secondary}` }}
-            />
+            <img src={image.url} />
             <ImageTitle fontSize={40}>{image.title}</ImageTitle>
             <div className={classes.borderDiv} />
           </GridListTile>

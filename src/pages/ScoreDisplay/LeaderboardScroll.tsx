@@ -18,7 +18,6 @@ const useStyles = makeStyles({
     justifyContent: "center",
     height: "100%",
     visibility: (props: Props) => (props.show ? "visible" : "hidden"),
-    // transition: (props: Props) => (props.show ? "visibility 0.3s 1s" : ""),
     overflow: "hidden",
     userSelect: "none",
     "&:focus": {
@@ -29,9 +28,6 @@ const useStyles = makeStyles({
     position: "relative",
     width: "100%",
     padding: "0 30%",
-    // background: `url(${ScrollBodyImg}) repeat-y`,
-    // backgroundPosition: "center",
-    // backgroundSize: "cover",
     color: COLORS.primary,
     height: (props: Props) => (props.show ? "60%" : 0),
     transition: "height 0.6s",
@@ -88,20 +84,10 @@ const LeaderboardScroll: React.FC<Props> = props => {
               {leaderboard
                 .filter(userRank => userRank.username !== "admin")
                 .map((userRank, idx) => (
-                  <>
-                    <Typography className={classes.ranking}>
-                      <span style={{ float: "left" }}>{idx + 1}.</span>
-                      {userRank.username}
-                    </Typography>
-                    {/* <Typography className={classes.ranking}>
-                      <span style={{ float: "left" }}>{idx+1}.</span>
-                      {userRank.username}
-                    </Typography>
-                    <Typography className={classes.ranking}>
-                      <span style={{ float: "left" }}>{idx+1}.</span>
-                      {userRank.username}
-                    </Typography> */}
-                  </>
+                  <Typography className={classes.ranking}>
+                    <span style={{ float: "left" }}>{idx + 1}.</span>
+                    {userRank.username}
+                  </Typography>
                 ))}
             </>
           )}
@@ -113,75 +99,3 @@ const LeaderboardScroll: React.FC<Props> = props => {
 };
 
 export default LeaderboardScroll;
-
-// import React from "react";
-// import LanternImg from "../../assets/lantern.png";
-// import { makeStyles, Typography, Modal } from "@material-ui/core";
-// import { COLORS } from "./../../theme";
-// import ModalOverlay from "../../components/ModalOverlay";
-
-// const useStyles = makeStyles({
-//   container: {
-//     position: "fixed",
-//     display: "flex",
-//     width: "100%",
-//     justifyContent: "center",
-//     height: "100%",
-//     top: (props: Props) => (props.show ? 0 : "-100%"),
-//     transition: "top 0.3s ease-out",
-//     transitionDelay: "1s",
-//     overflow: "hidden",
-//     userSelect: "none",
-//     "&:focus": {
-//       outline: "none"
-//     }
-//   },
-//   lantern: {
-//     display: "block",
-//     position: "absolute",
-//     height: "auto"
-//   },
-//   overlay: {
-//     opacity: (props: Props) => (props.show ? 0.5 : 0),
-//     display: (props: Props) => (props.show ? "block" : "none"),
-//     transition: "opacity 0.75s, display 0.75s"
-//   },
-//   textContainer: {
-//     color: COLORS.accent,
-//     position: "absolute",
-//     top: 120, // Hard-code hack
-//     textAlign: "center"
-//   },
-//   giantTitle: {
-//     fontSize: "80px"
-//   }
-// });
-
-// interface Props {
-//   show?: boolean;
-//   rank?: number;
-// }
-
-// const Ranking: React.FC<Props> = props => {
-//   const classes = useStyles(props);
-//   return (
-//     <>
-//       <Modal keepMounted open={props.show}>
-//         <div className={classes.container}>
-//           {/* <ModalOverlay className={classes.overlay} /> */}
-//           <img className={classes.lantern} src={LanternImg} />
-//           <div className={classes.textContainer}>
-//             <Typography variant="h1">Your Ranking:</Typography>
-//             <Typography variant="h1" className={classes.giantTitle}>
-//               {props.rank}
-//             </Typography>
-//           </div>
-//         </div>
-//       </Modal>
-//     </>
-//   );
-// };
-
-// Ranking.defaultProps = { rank: 1 };
-
-// export default Ranking;

@@ -81,7 +81,7 @@ export default class AjaxService {
 
   static fetchAllUsersRank = async () => {
     try {
-      const result = await axios.get(BASE_HREF + "/game/rank?size=6");
+      const result = await axios.get(BASE_HREF + "/game/rank?size=10");
       if (result.status === 200) {
         return result.data as UserRank[];
       } else {
